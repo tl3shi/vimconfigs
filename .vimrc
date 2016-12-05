@@ -114,13 +114,21 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" ag
+set runtimepath^=~/.vim/bundle/ag
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif,*.class 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-" ag
-set runtimepath^=~/.vim/bundle/ag
+" ctrlp default use grep to search, use ag to replace
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " easy motion intergration with incsearch
 function! s:incsearch_config(...) abort
@@ -146,9 +154,9 @@ let g:indent_guides_start_level=2
 " 色块宽度
 let g:indent_guides_guide_size=1
 
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  guibg=red   ctermbg=6
-hi IndentGuidesEven guibg=green ctermbg=6
+"let g:indent_guides_auto_colors = 0
+"hi IndentGuidesOdd  guibg=red   ctermbg=6
+"hi IndentGuidesEven guibg=green ctermbg=6
 " 快捷键 i 开/关缩进可视化
 :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
