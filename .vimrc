@@ -32,7 +32,8 @@ set background=dark
 colorscheme molokai
 set nocompatible
 set wildmenu
-let mapleader=";"
+"let mapleader=";"
+let mapleader="\<Space>"
 
 " 代码折叠 indent/syntax
 set foldmethod=syntax
@@ -40,6 +41,14 @@ set nofoldenable
 
 set tags=tags;/
 set backupskip=/tmp/*,/private/tmp/*
+
+" 复制粘贴重新map
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 
 execute pathogen#infect()
 " 安装 docs
@@ -116,6 +125,11 @@ let g:tagbar_type_go = {
 
 " ag
 set runtimepath^=~/.vim/bundle/ag
+" bind K to grep word under cursor
+" nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K :Ag! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" donot open first result in ag result, :Ag! "" 
+nnoremap <Leader>s :Ag! ""<left>
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif,*.class 
@@ -153,7 +167,6 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 " 色块宽度
 let g:indent_guides_guide_size=1
-
 "let g:indent_guides_auto_colors = 0
 "hi IndentGuidesOdd  guibg=red   ctermbg=6
 "hi IndentGuidesEven guibg=green ctermbg=6
