@@ -28,7 +28,7 @@ filetype plugin indent on
 set completeopt=longest,menu
 
 set background=dark
-" in /usr/local/Cellar/vim/7.4.488/share/vim/vim74/colors/
+" in /usr/local/Cellar/vim/7.4.884/share/vim/vim74/colors/ 
 colorscheme molokai
 set nocompatible
 set wildmenu
@@ -262,4 +262,3 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 let g:neocomplcache_force_omni_patterns.java = '\k\.\k*'
 let g:neocomplcache_force_omni_patterns.scala = '\k\.\k*'
-
