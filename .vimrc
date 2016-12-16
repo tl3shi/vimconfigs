@@ -30,6 +30,8 @@ set completeopt=longest,menu
 set background=dark
 " in /usr/local/Cellar/vim/7.4.884/share/vim/vim74/colors/ 
 colorscheme molokai
+"colorscheme solarized
+
 set nocompatible
 set wildmenu
 "let mapleader=";"
@@ -41,6 +43,11 @@ set nofoldenable
 
 set tags=tags;/
 set backupskip=/tmp/*,/private/tmp/*
+
+" 让配置变更立即生效
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+cmap w!! w !sudo tee > /dev/null %
 
 " 复制粘贴重新map
 vmap <Leader>y "+y
@@ -262,3 +269,11 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 let g:neocomplcache_force_omni_patterns.java = '\k\.\k*'
 let g:neocomplcache_force_omni_patterns.scala = '\k\.\k*'
+
+
+" wildfire.vim 快捷键
+map <ENTER> <Plug>(wildfire-fuel)
+vmap <S-ENTER> <Plug>(wildfire-water)
+nmap <leader>v <Plug>(wildfire-quick-select)
+" 适用于哪些结对符
+let g:wildfire_objects = ["i}", "i'", 'i"', "i)", "i]", "i>", "ip"]
