@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tanglei/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 source ~/.bash_profile
 
@@ -74,7 +74,8 @@ LSCOLORS=gxfxcxdxbxegedabagacad
 #sets up theprompt color (currently a green similar to linux terminal)
 exportPS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 #enables colorfor iTerm
-exportTERM=xterm-color
+#exportTERM=xterm-color
+exportTERM=xterm-256color
 #
 
 source $ZSH/oh-my-zsh.sh
