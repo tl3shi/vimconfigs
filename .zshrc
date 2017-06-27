@@ -51,7 +51,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, autojump, urltools, osx)
+# conflicts? urltools v.s osx?
+plugins=(git, osx)
 
 # User configuration
 
@@ -122,19 +123,20 @@ alias gfod='git fetch origin develop'
 alias grod='git rebase origin/develop'
 alias grom='git rebase origin/master'
 alias gl="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias subl='open -a "Sublime Text"'
 
-[[ -s `brew --prefix`/etc/profile.d/autojump.sh ]] && . `brew --prefix`/etc/profile.d/autojump.sh
 # Load zsh-syntax-highlighting.
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Load zsh-autosuggestions.
-source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
-# Enable autosuggestions automatically.
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source ~/.oh-my-zsh/plugins/urltools/urltools.plugin.zsh
+
+[[ -s `brew --prefix`/etc/profile.d/autojump.sh ]] && . `brew --prefix`/etc/profile.d/autojump.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # added by travis gem
 [ -f /Users/tanglei/.travis/travis.sh ] && source /Users/tanglei/.travis/travis.sh
+
+#eval "$(docker-machine env default)"
