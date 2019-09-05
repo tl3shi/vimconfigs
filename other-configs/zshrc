@@ -51,22 +51,16 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# conflicts? urltools v.s osx?
-plugins=(git, osx)
+# autojump should install by `brew install autojump`
+plugins=(git urltools osx zsh-autosuggestions zsh-syntax-highlighting autojump)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tanglei/Library/Android/sdk/platform-tools:/Applications/apache-maven-3.2.5/bin:/Applications/apache-tomcat-7.0.57/bin:/Users/tanglei/:/opt/local/bin:/opt/local/sbin:/Applications/eclipse/sdk/platform-tools/:/opt/local/lib/mysql5/bin:/usr/local/nginx/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tanglei/Library/Android/sdk/platform-tools:/Users/tanglei/:/opt/local/bin:/opt/local/sbin:/usr/local/nginx/sbin"
 export CLICOLOR=1
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/Cellar/go/1.5.1/libexec
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
-export PATH=~/:/opt/local/bin:/opt/local/sbin:/Applications/eclipse/sdk/platform-tools/:/opt/local/lib/mysql5/bin:$PATH
-export PATH=/usr/local/bin:/Applications/apache-maven-3.2.5/bin:/Applications/apache-tomcat-7.0.57/bin:$PATH
-export PATH=$GOPATH/bin:/Users/tanglei/Library/Android/sdk/platform-tools:$PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home
+export PATH=~/:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 #enables colorin the terminal bash shell export
 
 CLICOLOR=1
@@ -124,17 +118,6 @@ alias grod='git rebase origin/develop'
 alias grom='git rebase origin/master'
 alias gl="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias subl='open -a "Sublime Text"'
-
-# Load zsh-syntax-highlighting.
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-source ~/.oh-my-zsh/plugins/urltools/urltools.plugin.zsh
-
-[[ -s `brew --prefix`/etc/profile.d/autojump.sh ]] && . `brew --prefix`/etc/profile.d/autojump.sh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # added by travis gem
 [ -f /Users/tanglei/.travis/travis.sh ] && source /Users/tanglei/.travis/travis.sh

@@ -52,9 +52,6 @@
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
-[submodule "bundle/vimshell.vim"]
-	path = bundle/vimshell.vim
-	url = git@github.com:Shougo/vimshell.vim.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
