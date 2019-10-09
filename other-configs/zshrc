@@ -61,6 +61,9 @@ export CLICOLOR=1
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home
 export PATH=~/:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export GOROOT=/usr/local/Cellar/go/1.13/libexec
+export GOPATH=~/go
+export PATH=$GOPATH/bin:$PATH
 #enables colorin the terminal bash shell export
 
 CLICOLOR=1
@@ -106,6 +109,7 @@ alias l='ls -GF'
 alias lsa='ls -lah'
 alias g='git'
 alias gs='git status'
+alias gst='git status'
 alias gb='git branch -va'
 alias gco='git checkout'
 alias ga='git add'
